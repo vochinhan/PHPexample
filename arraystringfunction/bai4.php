@@ -2,13 +2,12 @@
 <body>
     <?php
         $input = $output = "";
-        $arr = explode(",",$input);
         if (isset($_POST['submit']))
         {
-            var_dump($arr);
             if (isset($_POST['input']))
             {
-                $input = $_POST['input'];
+                $input = trim($_POST['input']);
+                $arr = explode(",",$input);
                 $output = array_sum($arr);
             }
         }
@@ -21,7 +20,9 @@
         table
         {
             width: 500px;
+            background-color: aliceblue;
         }
+
     </style>
     <form action="" method="post">
         <table>
