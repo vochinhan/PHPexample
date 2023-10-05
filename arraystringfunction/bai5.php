@@ -13,7 +13,9 @@
                 $input = trim($_POST['input']);
                 $my_arr = init_arr($input);
                 $arr = implode(" ", $my_arr);
-                
+                $min = min_arr($my_arr);
+                $max = max_arr($my_arr);
+                $sum = sum_arr($my_arr);    
             }
         }
         // generate a $len elements array with random indexes value from 0 to 20
@@ -27,6 +29,36 @@
             return $a;
         }
 
+        function sum_arr($arr)
+        {
+            $sum = 0;
+            foreach ($arr as $index)
+            {
+                $sum += $index;
+            }
+            return $sum;
+        }
+
+        function min_arr($arr)
+        {
+            $min = 21;
+            foreach ($arr as $index)
+            {
+                $min = $min > $index ? $index : $min;
+            }
+            return $min;
+        }
+
+        function max_arr($arr)
+        {
+            $max = -1;
+            foreach ($arr as $index)
+            {
+                $max = $max < $index ? $index : $max;
+            }
+            return $max;
+        }
+
     ?>
     <style>
         span
@@ -37,6 +69,12 @@
         table
         {
             background-color: pink;
+            width: 500px;
+        }
+
+        input
+        {
+            width: 100%;
         }
 
         .colored-col
@@ -54,7 +92,7 @@
             </tr>
             <tr>
                 <td class="colored-col"></td>
-                <td class="colored-col"><input type="submit" name="submit" value="Phát sinh và tính toán"></td>
+                <td class="colored-col"><span><input type="submit" name="submit" value="Phát sinh và tính toán"><span></td>
             </tr>
             <tr>
                 <td>Mảng: </td>
